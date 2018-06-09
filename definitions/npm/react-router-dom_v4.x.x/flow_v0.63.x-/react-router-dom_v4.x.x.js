@@ -130,16 +130,21 @@ declare module "react-router-dom" {
 
   declare export class Redirect extends React$Component<{|
     to: string | LocationShape,
-    push?: boolean
+    push?: boolean,
+    from?: string,
+    exact?: boolean,
+    strict?: boolean
   |}> {}
 
   declare export class Route extends React$Component<{|
     component?: React$ComponentType<*>,
     render?: (router: ContextRouter) => React$Node,
-    children?: React$ComponentType<ContextRouter> | React$Node,
+    children?: (router: ContextRouter) => React$Node,
     path?: string,
     exact?: boolean,
-    strict?: boolean
+    strict?: boolean,
+    location?: LocationShape,
+    sensitive?: boolean
   |}> {}
 
   declare export class Switch extends React$Component<{|
